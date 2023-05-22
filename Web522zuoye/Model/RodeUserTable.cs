@@ -18,9 +18,9 @@ namespace Model
         public int Id { get; set; }
 
         /// <summary>
-        /// 用户名
+        /// 用户id
         /// </summary>
-        public string User_name { get; set; }
+        public int User_Id { get; set; }
 
         /// <summary>
         /// 角色id

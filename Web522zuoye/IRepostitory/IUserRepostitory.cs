@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace IRepostitory
@@ -11,7 +12,7 @@ namespace IRepostitory
         /// <param name="entity"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public bool UserAdd(T entity);
+        int UserAdd(T entity);
 
         /// <summary>
         /// 删
@@ -19,7 +20,7 @@ namespace IRepostitory
         /// <param name="entity"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public bool UserDelete(T entity);
+        int UserDelete(T entity);
 
         /// <summary>
         /// 改
@@ -27,14 +28,17 @@ namespace IRepostitory
         /// <param name="entity"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public bool UserAlter(T entity);
+        int UserAlter(T entity);
 
         /// <summary>
         /// 查
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public IQueryable<T> GetUser();
+        //IQueryable<T> GetUser();
+
+
+        IEnumerable<T> GetAll();
 
     }
 }

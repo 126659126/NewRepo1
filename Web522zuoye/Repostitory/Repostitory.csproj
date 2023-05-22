@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IRepostitory\IRepostitory.csproj" />
+    <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\UserDb\UserDb.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,25 +9,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Model
 {
     /// <summary>
-    /// 角色表
+    /// 时间表
     /// </summary>
-    [Table("Role_db")]
-    public class Role_db: TimeTable
+    public class TimeTable
     {
         /// <summary>
-        /// 角色id
+        /// 添加人姓名
         /// </summary>
-        [Key]
-        public int Rode_id { get; set; }
+        public string AddName { get; set; }
 
         /// <summary>
-        /// 角色名称
+        /// 添加时间
         /// </summary>
-        public string Rode_name { get; set; }
+        public DateTime AddTime { get; set; }
 
         /// <summary>
-        /// 角色状态
+        /// 修改人姓名
         /// </summary>
-        public string Rode_status { get; set; }
+        public string ChangeName { get; set; }
+
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        public DateTime ChangeTime { get; set; }
     }
 }

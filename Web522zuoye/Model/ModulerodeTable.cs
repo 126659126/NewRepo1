@@ -21,9 +21,9 @@ namespace Model
         public int Id { get; set; }
 
         /// <summary>
-        /// 模块
+        /// 模块id
         /// </summary>
-        public string Module_code { get; set; }
+        public int Module_Id { get; set; }
 
         /// <summary>
         /// 角色id

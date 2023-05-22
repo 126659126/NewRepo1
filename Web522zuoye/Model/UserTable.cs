@@ -8,12 +8,17 @@ namespace Model
     /// 用户表
     /// </summary>
     [Table("UserTable")]
-    public class UserTable
+    public class UserTable: TimeTable
     {
         /// <summary>
-        /// 用户名
+        /// 用户id
         /// </summary>
         [Key]
+        public int User_Id { get; set; }
+
+        /// <summary>
+        /// 用户账号
+        /// </summary>
         public string User_name { get; set; }
 
         /// <summary>
@@ -25,5 +30,10 @@ namespace Model
         /// 用户姓名
         /// </summary>
         public string User_full_name { get; set; }
+
+        /// <summary>
+        /// 用户电话
+        /// </summary>
+        public string User_Phone { get; set; }
     }
 }

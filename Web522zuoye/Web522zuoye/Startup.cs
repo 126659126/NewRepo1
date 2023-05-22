@@ -10,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserDb;
+using Microsoft.EntityFrameworkCore;
+using Repostitory;
+using IRepostitory;
+using Model;
 
 namespace Web522zuoye
 {
@@ -31,11 +36,20 @@ namespace Web522zuoye
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web522zuoye", Version = "v1" });
             });
+
+            services.AddDbContext<UserDbContext>(m => m.UseSqlServer(Configuration.GetConnectionString("COMM")));
+
+            //´óÐ¡Ð´
+            services.AddControllers().AddNewtonsoftJson(m => m.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver());
+
+            services.AddScoped<IUserRepostitory<UserTable>, UserRepostitory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(m => m.AllowAnyHeader().AllowAnyOrigin().AllowAnyOrigin().AllowAnyMethod());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
