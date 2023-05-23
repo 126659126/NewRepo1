@@ -40,5 +40,13 @@ namespace IRepostitory
 
         IEnumerable<T> GetAll();
 
+
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        int LogIn(string name, string pwd);
     }
 }

@@ -95,5 +95,26 @@ namespace Web522zuoye.Controllers
                 throw;
             }
         }
+
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="name">账号</param>
+        /// <param name="pwd">密码</param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult LogIn(string name, string pwd)
+        {
+            try
+            {
+                var list = repostitory.LogIn(name,pwd);
+                return Ok(list);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

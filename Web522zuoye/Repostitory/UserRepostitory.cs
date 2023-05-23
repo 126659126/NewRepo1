@@ -59,5 +59,34 @@ namespace Repostitory
         {
             return db.UserTable.ToList();
         }
+
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public int LogIn(string name,string pwd)
+        {
+            try
+            {
+                var list=db.UserTable.Where(m => m.User_name == name).ToList();
+
+                if (list.Count <= 0)//判断账号传过来的数据在数据库中是否有这个账号
+                {
+                    return -1;
+                }
+                
+                list.Where(m => m.User_pwd == pwd).ToList();
+
+                return db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
