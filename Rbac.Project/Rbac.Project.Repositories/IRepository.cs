@@ -52,6 +52,13 @@ namespace Rbac.Project.Repositories
         Task<T> UpdateAsync(T entity);
 
         /// <summary>
+        /// 按条件查单条
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        Task<T> FindAsync(Expression<Func<T, bool>> predicate);
+
+        /// <summary>
         /// 查询
         /// </summary>
         /// <param name="Id"></param>

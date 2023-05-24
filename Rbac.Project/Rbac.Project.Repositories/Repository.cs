@@ -5,6 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Z.EntityFramework;
+using Z.EntityFramework.Extensions;
+using Z.EntityFramework.Plus;
 
 namespace Rbac.Project.Repositories
 {
@@ -68,10 +71,10 @@ namespace Rbac.Project.Repositories
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        //public async Task<int> DeleteAsync(Expression<Func<T,bool>> predicate)
-        //{
-        //    return await db.Set<T>().Where(predicate).DeleteAsync();
-        //}
+        public async Task<int> DeleteAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await db.Set<T>().Where(predicate).DeleteAsync();
+        }
 
         /// <summary>
         /// 批量删除
@@ -129,6 +132,17 @@ namespace Rbac.Project.Repositories
         public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
         {
             return await db.Set<T>().AnyAsync(predicate);
+        }
+
+        /// <summary>
+        /// 按条件查单条
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<T> FindAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await db.Set<T>().FirstOrDefaultAsync(predicate);
         }
     }
 }

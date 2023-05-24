@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rbac.Project.Repositories\Rbac.Project.Repositories.csproj" />
+    <ProjectReference Include="..\Rbac.Project.Utility\Rbac.Project.Utility.csproj" />
   </ItemGroup>
 
 </Project>

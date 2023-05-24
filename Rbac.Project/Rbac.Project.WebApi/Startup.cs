@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Rbac.Project.Repositories;
+using Rbac.Project.Application.Admins;
 
 namespace Rbac.Project.WebApi
 {
@@ -36,6 +37,9 @@ namespace Rbac.Project.WebApi
 
             //×¢Èë
             services.AddDbContext<RbacDbContext>(m => m.UseSqlServer(Configuration.GetConnectionString("COMM")));
+
+            services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
