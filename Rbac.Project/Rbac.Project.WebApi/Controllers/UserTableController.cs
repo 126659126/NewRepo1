@@ -17,11 +17,10 @@ namespace Rbac.Project.WebApi.Controllers
             this.adminService = _adminService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Register()
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateOrUpdateDto dto)
         {
-            await adminService.InsertAsync();
-            return Ok();
+            return Ok(await adminService.InsertAsync(dto));
         }
 
         /// <summary>

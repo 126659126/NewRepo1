@@ -5,14 +5,27 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/LongIn',
     name: 'LongIn',
     component: () => import(/* webpackChunkName: "about" */ '../views/LongIn.vue')
   },
   {
-    path: 'Home',
+    path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+    children:[
+      {
+        path: '/Admin',
+        name: 'Admin',
+        component: () => import("../views/Admin/List.vue")
+      }
+      // ,
+      // {
+      //   path: '/Menu',
+      //   name: 'Menu',
+      //   component: () => import("../views/Menu/List.vue")
+      // }
+    ]
   }
 ]
 

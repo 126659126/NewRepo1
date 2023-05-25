@@ -16,17 +16,37 @@ namespace Rbac.Project.Application.Admins
         }
 
 
-        public async Task<UserTable> InsertAsync()
+        public async Task<ResultDto<UserTable>> InsertAsync(CreateOrUpdateDto dto)
         {
-            return await repository.InsertAsync(new UserTable
+            try
             {
-                U_UserName = "张三",
-                U_Password = "21232F297A57A5A743894A0E4A801FC3",
-                U_Name = "张三",
-                U_Email = "zhangsan@qq.com",
-                Name = "Admin",
-                AddTime = DateTime.Now
-            });
+                if (await repository.ExistsAsync(m => m.U_UserName == dto.U_UserName))
+                {
+                    return new ResultDto<UserTable> { Result = Result.Success, Message = "用户已存在" };
+                }
+                else
+                {
+                    dto.U_Password = dto.U_Password.Md5();
+
+                    await repository.InsertAsync(new UserTable
+                    {
+                        U_UserName = dto.U_UserName,
+                        U_Password = dto.U_Password,
+                        U_Name = dto.U_Name,
+                        U_Email = dto.U_Email,
+                        Name="张三",
+                        AddTime=DateTime.Now,
+                        U_Avatar = dto.U_Avatar,
+                        U_Remark = dto.U_Remark
+                    });
+
+                    return new ResultDto<UserTable> { Result = Result.Success };
+                }
+            }
+            catch (Exception e)
+            {
+                return new ResultDto<UserTable> { Result = Result.Failure, Message = e.Message };
+            }
         }
 
         public async Task<ResultDto> LoginAsunc(LoginDto dto)

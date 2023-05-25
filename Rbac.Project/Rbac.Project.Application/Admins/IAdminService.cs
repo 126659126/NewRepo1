@@ -11,7 +11,7 @@ namespace Rbac.Project.Application.Admins
     public interface IAdminService
     {
 
-        Task<UserTable> InsertAsync();
+        Task<ResultDto<UserTable>> InsertAsync(CreateOrUpdateDto dto);
 
         /// <summary>
         /// 登录

@@ -1,16 +1,16 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Rbac.Project.Domain
+namespace Rbac.Project.Application.Admins.Dto
 {
-    [Table("UserTable")]
-    public class UserTable : Timequantum
+    public class CreateOrUpdateDto
     {
         /// <summary>
         /// 用户ID
         /// </summary>
-        [Key]
         public int U_Id { get; set; }
 
         /// <summary>
@@ -37,20 +37,10 @@ namespace Rbac.Project.Domain
         /// 头像
         /// </summary>
         public string U_Avatar { get; set; }
-        
+
         /// <summary>
         /// 备注
         /// </summary>
         public string U_Remark { get; set; }
-
-        /// <summary>
-        /// 末次登录时间
-        /// </summary>
-        public DateTime U_LastloginTime { get; set; }
-
-        /// <summary>
-        /// 末次登录IP
-        /// </summary>
-        public string U_LastLonginIP { get; set; }
     }
 }

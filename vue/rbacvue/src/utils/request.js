@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { MessageBox, Message } from 'element-ui'
 
-// axios.defaults.baseURL = process.env.VUE_APP_BASEURL;
 axios.defaults.baseURL = process.env.VUE_APP_BASEURL;
-console.log(process.env.VUE_APP_BASEURL);
+
+
+
 
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
