@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Rbac.Project.Utility\Rbac.Project.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

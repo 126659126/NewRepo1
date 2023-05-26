@@ -3,9 +3,6 @@ import { MessageBox, Message } from 'element-ui'
 
 axios.defaults.baseURL = process.env.VUE_APP_BASEURL;
 
-
-
-
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
@@ -23,7 +20,7 @@ axios.interceptors.response.use(function (response) {
   const res = response.data
 
   // if the custom code is not 20000, it is judged as an error.
-  if (res.code !== 200) {
+  if (res.result !== 200) {
     Message({
       message: res.message || 'Error',
       type: 'error',

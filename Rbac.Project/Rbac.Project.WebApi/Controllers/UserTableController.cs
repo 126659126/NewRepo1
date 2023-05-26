@@ -33,5 +33,30 @@ namespace Rbac.Project.WebApi.Controllers
         {
             return Ok(await adminService.LoginAsunc(dto));
         }
+
+        /// <summary>
+        /// 分页显示
+        /// </summary>
+        /// <param name="PageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> PageData(int PageIndex = 1, int pageSize = 2)
+        {
+            return Ok(await adminService.PageDataAsync(PageIndex, pageSize));
+        }
+
+        /// <summary>
+        /// 分页(有条件)
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="PageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> PageDataTupleAsync([FromQuery]QueryDto query, int PageIndex = 1, int pageSize = 2)
+        {
+            return Ok(await adminService.PageDataTupleAsync(query, PageIndex, pageSize));
+        }
     }
 }
