@@ -52,7 +52,7 @@ namespace Rbac.Project.WebApi.Controllers
         /// <param name="query"></param>
         /// <param name="PageIndex"></param>
         /// <param name="pageSize"></param>
-        /// <returns></returns>
+        /// <returns></returns> 
         [HttpGet]
         public async Task<IActionResult> PageDataTupleAsync([FromQuery]QueryDto query, int PageIndex = 1, int pageSize = 2)
         {
